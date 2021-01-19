@@ -1,0 +1,27 @@
+enum:
+  type:
+    1: véhicule
+    2: passeport
+
+user:
+  form:
+    label:
+      firstname: Prénom
+      lastname: Nom
+      username: Login
+      type: Type
+
+carInfo:
+  form:
+    label:
+      carInfo: Véhicule
+      licensePlate: Immatriculation
+      horsePower: Puissance fiscale
+
+passportInfo:
+  form:
+    label:
+      passportInfo: Passeport
+      number: Numéro
+      country: Pays
+      expireAt: Date d'expiration

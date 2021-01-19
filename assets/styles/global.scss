@@ -1,0 +1,12 @@
+table {
+    border-collapse: collapse;
+
+    th, td {
+        border: 1px solid $primary-color;
+    }
+}
+
+#info-wrapper {
+    border: 1px solid $primary-color;
+    padding: 10px;
+}

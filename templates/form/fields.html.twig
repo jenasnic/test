@@ -1,0 +1,4 @@
+
+{% block date_picker_widget %}
+    {{ form_widget(form, {'attr' : attr|merge({ 'data-datepicker': true })}) }}
+{% endblock %}

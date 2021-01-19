@@ -1,0 +1,15 @@
+{{ form_start(form, {attr: {'novalidate': 'novalidate'}}) }}
+
+    {{ form_row(form.firstname) }}
+    {{ form_row(form.lastname) }}
+    {{ form_row(form.username) }}
+    {{ form_row(form.type, {attr: {'data-form-field-toggle': 'info-wrapper'}}) }}
+
+    <div id="info-wrapper">
+        {{ form_row(form.carInfo) }}
+        {{ form_row(form.passportInfo) }}
+    </div>
+
+    <button class="btn">Save</button>
+
+{{ form_end(form) }}
