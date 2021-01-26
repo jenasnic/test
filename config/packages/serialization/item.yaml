@@ -1,0 +1,13 @@
+App\Entity\Item:
+    attributes:
+        label:
+            groups:
+                - 'container:read:item'
+                - 'container:read:collection'
+        price:
+            groups:
+                - 'container:read:item'
+        brand:
+            groups:
+                - 'container:read:item'
+                - 'container:read:collection'

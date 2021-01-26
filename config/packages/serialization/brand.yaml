@@ -1,0 +1,9 @@
+App\Entity\Brand:
+    attributes:
+        code:
+            groups:
+                - 'container:read:item'
+                - 'container:read:collection'
+        label:
+            groups:
+                - 'container:read:item'

@@ -1,0 +1,15 @@
+resources:
+    App\Entity\Container:
+
+        collectionOperations:
+            get:
+                normalization_context:
+                    groups: ['container:read:collection']
+                filters:
+                    - 'api_filter.container.search'
+                    - 'api_filter.container.test'
+
+        itemOperations:
+            get:
+                normalization_context:
+                    groups: ['container:read:item']

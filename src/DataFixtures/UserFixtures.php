@@ -14,10 +14,8 @@ class UserFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $data = $this->getData();
-
-        foreach ($data as $item) {
-            $manager->persist($item);
+        foreach ($this->getData() as $user) {
+            $manager->persist($user);
         }
 
         $manager->flush();

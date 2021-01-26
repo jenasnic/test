@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,7 +25,27 @@ class Item
     /**
      * @ORM\Column(type="float")
      */
-    private $price;
+    private ?float $price = null;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private ?DateTime $availableAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private ?DateTime $expireAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Container", inversedBy="items")
+     */
+    private ?Container $container = null;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Brand")
+     */
+    private ?Brand $brand = null;
 
     public function getId(): ?int
     {
@@ -49,5 +70,45 @@ class Item
     public function setPrice(float $price): void
     {
         $this->price = $price;
+    }
+
+    public function getAvailableAt(): ?DateTime
+    {
+        return $this->availableAt;
+    }
+
+    public function setAvailableAt(DateTime $availableAt): void
+    {
+        $this->availableAt = $availableAt;
+    }
+
+    public function getExpireAt(): ?DateTime
+    {
+        return $this->expireAt;
+    }
+
+    public function setExpireAt(DateTime $expireAt): void
+    {
+        $this->expireAt = $expireAt;
+    }
+
+    public function getContainer(): ?Container
+    {
+        return $this->container;
+    }
+
+    public function setContainer(Container $container): void
+    {
+        $this->container = $container;
+    }
+
+    public function getBrand(): ?Brand
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(Brand $brand): void
+    {
+        $this->brand = $brand;
     }
 }

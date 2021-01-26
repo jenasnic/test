@@ -1,0 +1,18 @@
+services:
+
+  App\Service\Api\Filter\TestFilter:
+    abstract: true
+    autowire: false
+    autoconfigure: false
+    arguments:
+      - '@request_stack'
+
+  api_filter.container.search:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments: [ { label: 'partial' } ]
+    tags:  [ 'api_platform.filter' ]
+
+  api_filter.container.test:
+    parent: 'App\Service\Api\Filter\TestFilter'
+    arguments: [ 'items' ]
+    tags:  [ 'api_platform.filter' ]

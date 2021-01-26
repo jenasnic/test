@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=App\Repository\ContainerRepository::class)
@@ -30,6 +32,16 @@ class Container
      * @ORM\Column(type="integer")
      */
     private ?int $height = null;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Item", mappedBy="container")
+     */
+    private Collection $items;
+
+    public function __construct()
+    {
+        $this->items = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -64,5 +76,22 @@ class Container
     public function setHeight(int $height): void
     {
         $this->height = $height;
+    }
+
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    public function addItem(Item $item): void
+    {
+        if (!$this->items->contains($item)) {
+            $this->items->add($item);
+        }
+    }
+
+    public function removeItem(Item $item): void
+    {
+        $this->items->removeElement($item);
     }
 }
